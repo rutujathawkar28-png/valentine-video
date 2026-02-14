@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Valentines Day 💖</title>
+
+<style>
+body{
+  text-align:center;
+  background:pink;
+  font-family:cursive;
+  overflow-x:hidden;
+  margin:0;
+  padding:20px;
+}
+
+h1{
+  margin-top:10px;
+}
+
+#note{
+  max-width:90%;
+  margin:auto;
+  font-size:18px;
+}
+
+.heart{
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  color:red;
+  animation:fall 5s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10px);}
+  100%{transform:translateY(100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentines Day dear 💖</h1>
+
+<img src="start.jpg" width="300" alt="love image"><br><br>
+
+<h3 id="note"></h3>
+
+<br>
+
+<!-- Mobile friendly video -->
+<video width="300" controls autoplay muted playsinline>
+  <source src="video.mp4" type="video/mp4">
+  Your browser does not support the video.
+</video>
+
+<script>
+
+let text = "🧸 I know we are far apart, but despite being far apart we are close 💖 ... 🌹 Ever since you came, I haven't felt lonely ... 💗 My world has become beautiful since you came ... ❤️ I am yours forever 🧸🌹";
+let i = 0;
+
+function typing(){
+  if(i < text.length){
+    document.getElementById("note").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing,40);
+  }
+}
+
+typing();
+
+// hearts animation
+setInterval(() => {
+
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+
+}, 300);
+
+</script>
+
+</body>
+</html>
